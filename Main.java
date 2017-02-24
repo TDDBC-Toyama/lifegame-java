@@ -28,7 +28,25 @@ public class Main {
 				for (int j = 0; j < 5; j++) {
 					int count = 0;
 
-					bb[i][j] = b[i][j];
+					if (b[i][j].equals("□")) {
+						// 誕生の場合
+						count = 0;
+
+						if (i > 0 && j > 0 && b[i - 1][j - 1].equals("■")) count += 1;
+						if (i > 0 && b[i - 1][j].equals("■")) count += 1;
+						if (i > 0 && j < 4 && b[i - 1][j + 1].equals("■")) count += 1;
+						if (j > 0 && b[i][j - 1].equals("■")) count += 1;
+						if (j < 4 && b[i][j + 1].equals("■")) count += 1;
+						if (i < 4 && j > 0 && b[i + 1][j - 1].equals("■")) count += 1;
+						if (i < 4 && b[i + 1][j].equals("■")) count += 1;
+						if (i < 4 && j < 4 && b[i + 1][j + 1].equals("■")) count += 1;
+
+						if (count >= 3) {
+							bb[i][j] = "■";
+						} else {
+							bb[i][j] = "□";
+						}
+					}
 
 					if (b[i][j].equals("■")) {
 						// 生存・過疎・過密の場合
