@@ -15,5 +15,17 @@ public class Main {
 			}
 			System.out.println(line);
 		}
+
+		for (int times = 0; times < 3; times++) {
+			System.out.println(times + "==========");
+
+			for (int i = 0; i < 5; i++) {
+				String line = "";
+				for (int j = 0; j < 5; j++) {
+					line = line + b[i][j];
+				}
+				System.out.println(line);
+			}
+		}
 	}
 }
